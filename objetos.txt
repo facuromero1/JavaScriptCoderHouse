@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Auriculares",
+    "price": 3500,
+    "thumbnail": "url",
+    "id": 1
+  },
+  {
+    "title": "Televisor",
+    "price": 450055,
+    "thumbnail": "url",
+    "id": 2
+  },
+  {
+    "title": "Heladera",
+    "price": 8000,
+    "thumbnail": "url",
+    "id": 3
+  }
