@@ -1,25 +1,18 @@
 const express = require('express')
 const { engine } = require('express-handlebars')
 const Container = require('/Users/facu/Documents/coderHouse/tps/project/contenedor');
+
 const app = express()
 
 const contenedor = new Container();
 
-app.engine('hbs', engine({
-    extname: 'hbs',
-    defaultLayout: `${__dirname}/views/index`,
-    layoutsDir: `${__dirname}/views/layouts`,
-    partialsDir: `${__dirname}/views/partials`,
-}))
-
 app.set('views', './views')
-app.set('view engine', 'hbs')
+app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({ extended: 'true' }))
 
-
 app.get('/', (req, res) => {
-    return res.render('layouts/form')
+    return res.render('index')
 })
 
 app.get('/productos',async (req, res) => {
@@ -28,7 +21,7 @@ app.get('/productos',async (req, res) => {
         productos
     }
 
-    return res.render('layouts/productos', data)
+    return res.render('prod', data)
 })
 
 app.post('/productos', async (req, res) => {
@@ -45,6 +38,6 @@ app.post('/productos', async (req, res) => {
 
 const PORT = 8080;
 
-const server = app.listen(PORT, () => console.log(`server listen on port: ${PORT}`))
+const server = app.listen(PORT, () => console.log(`Servidor corriendo en el puerto: ${PORT}`))
 
-server.on("error", (error) => console.log(`error in server: ${error}`));
+server.on("error", (error) => console.log(`Hubo un error: ${error}`));
